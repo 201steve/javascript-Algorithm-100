@@ -1,0 +1,89 @@
+# 🧾 문제
+
+```javascript
+# 문제3 : 변수의 타입
+
+다음 출력 값으로 올바른 것은?
+
+var arr = [100, 200, 300];
+console.log(typeof(arr));
+
+1.  undefined
+2.  string
+3.  number
+4.  object
+
+```
+
+# 👨🏻‍🏫 답
+
+```javascript
+4.object
+```
+
+# 🖥 내가 한 풀이
+
+```javascript
+4.object
+```
+
+- 간단하게는, primitive type 아닌건 모두 객체 이기 때문.
+- 자세한건 밑에서
+
+# 🎯 메소드 이해.
+
+## 자바스크립트의 타입
+
+- 변수의 타입지정 없이 값이 할당되는 과정에서 자동으로 변수의 타입이 결정된다(타입 추론, type inference)
+- 변수는 고정된 타칩이 없고, 여러 타입의 값을 자유롭게 할당 할 수 있다.
+
+### 1. 원시타입 primitive type
+
+- 값이 한번 정해지면 변경할 수 없다.(immutable)
+- 값이 복사되서 전달된다.
+- 메모리의 스택영역에 고정된 메모리 영역을 점유하고 저장된다.
+- 변수에 명시한 고유한 식별자를 변수명이라 하고
+- 변수로 참조할 수 있는 데이터를 변수값이라 한다.
+- 변수는 `var`,`let`,`const`로 `선언`하고 `=` 할당연산자를 사용해 값을 `할당` 한다. 그리고 `변수명`을 사용해 변수에 저장된 값을 `참조`한다.
+- 식별자로 구별해 참조할 수 있고, 데이터는 메모리에 저장되있어, 데이터가 저장된 메모리상의 주소를 식별자가 기억한다.
+- 따라서 식별자를 통해 메모리에 저장된 값을 참조할 수 있다.
+
+  ```javascript
+  const name = 'steve'
+  const === 선언 키워드
+  `=` 할당연산자
+  name  === 식별자
+  'steve' === 변수값
+  ```
+
+  ```javascript
+  * number (1,2,3,4,5)
+  * string ("1","2","3","4","5")
+  * boolean (true,false)
+  * undefined (undefined) : 정의되지않았다.
+  * null (null) : 아무것도 없다.
+  * symbol
+  ```
+
+### 2. 참조타입 reference type
+
+- 데이터와 그 데이터를 관련한 동작(절차,방법,기능)을 모두 포함할 수 있는 개념적 존재.
+- 이름`(key)`과 값`(value)`를 가지는 `property`와 동작을 의미하는 `method`를 포함할 수 있는 독립적 주체
+- 값이 바뀔 수 있음 `(mutable)`
+- 자바스크립트 원시타입 제외한 거의 모든것이 객체 (배열,함수,정규표현식 등)
+- 객체 자체를 메모리에 저장하고 있는게 아니라, 생성된 객체의 참조값(reference)를 저장하고 있음
+
+  ```javascript
+  let foo = { val: 10 };
+  let bar = { val: 10 };
+
+  console.log(foo.val, bar.val); // 10 10
+  console.log(foo === bar); //false
+
+  let baz = bar;
+
+  console.log(baz.val, baz.val); //10 10
+  console.log(baz === bar); //true
+  ```
+
+[참조 - poiemaweb 모던자바스크립트 deep dive](https://poiemaweb.com/js-data-type-variable)
